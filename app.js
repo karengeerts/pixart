@@ -12,6 +12,24 @@ $(".colourpicker").keypress(function(e) {
     }
 });
 
+var addPoster = function(result){
+  var $moviePoster= $('<img>');
+  $moviePoster.attr("src", result.Poster);
+  $('.moviebox').append($moviePoster);
+};
+
+
+$(".moviepicker").click(function(){
+  movie = $('.moviepicker').val();
+  console.log(movie);
+  movie_request = "http://www.omdbapi.com/?apikey=2f6435d9&t=" + movie;
+  var xhr = $.get(movie_request);
+    xhr.done(function(result) {
+      addPoster(result);
+});
+});
+
+
 var addSquares = function(){
   for (var i = 0; i < 100; i++){
     var $newSquare = $('<div>');
