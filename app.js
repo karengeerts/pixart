@@ -15,7 +15,7 @@ $(".colourpicker").keypress(function(e) {
 var addSquares = function(){
   for (var i = 0; i < 100; i++){
     var $newSquare = $('<div>');
-    $newSquare.click(function(){
+    $newSquare.mouseover(function(){
       $(this).css('background-color', $(".colourpicker").val());
     });
     $("body").append($newSquare);
